@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 
@@ -7,6 +7,9 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './cadastro.component.html',
 })
 export class CadastroComponent {
+
+
+  @Output() cadastroEvent = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,7 +23,7 @@ export class CadastroComponent {
 
 
   onSubmit(): void {
-    console.log('Your order has been submitted', this.cadastroForm.value);
+    this.cadastroEvent.emit(this.cadastroForm.value);
   }
 
 }

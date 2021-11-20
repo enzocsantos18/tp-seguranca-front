@@ -1,7 +1,7 @@
 
-<app-login></app-login>
-<app-cadastro></app-cadastro>
-<app-token></app-token>
+<app-login (loginEvent)="login($event)"></app-login>
+<app-cadastro (cadastroEvent)="adicionarUsuario($event)"></app-cadastro>
+<app-token (tokenEvent)="token($event)"></app-token>
 <app-logado></app-logado>
 
 

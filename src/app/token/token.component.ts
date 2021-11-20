@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -6,6 +6,9 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './token.component.html',
 })
 export class TokenComponent  {
+
+  @Output() tokenEvent = new EventEmitter<any>();
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -18,6 +21,6 @@ export class TokenComponent  {
 
 
   onSubmit(): void {
-    console.log('Your order has been submitted', this.tokenForm.value);
+    this.tokenEvent.emit(this.tokenForm.value)
   }
 }

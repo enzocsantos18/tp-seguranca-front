@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'two-factor-frontend';
+
+  login(usuario: any) {
+    console.log(usuario)
+
+  }
+  adicionarUsuario(usuario: any) {
+    console.log(usuario)
+
+  }
+  token(token: any) {
+    console.log(token)
+
+  }
 }
