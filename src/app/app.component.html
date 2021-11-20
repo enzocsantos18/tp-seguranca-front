@@ -1,8 +1,24 @@
+<div class="main">
 
-<app-login (loginEvent)="login($event)"></app-login>
-<app-cadastro (cadastroEvent)="adicionarUsuario($event)"></app-cadastro>
-<app-token (tokenEvent)="token($event)"></app-token>
-<app-logado></app-logado>
+  <div>
+    <app-login *ngIf=(!hideLogin) (loginEvent)="login($event)"></app-login>
+    <span *ngIf=(!hideLogin) (click)="ativaCadastrar()">Cadastre-se</span>
+
+    <span *ngIf=(!hideCadastro) (click)="ativaLogin()">Voltar -> </span>
+
+    <app-cadastro *ngIf=(!hideCadastro) (cadastroEvent)="adicionarUsuario($event)"></app-cadastro>
+
+    <span *ngIf=(!hideToken) (click)="ativaLogin()"> Voltar -></span>
+
+    <app-token *ngIf=(!hideToken) (tokenEvent)="token($event)"></app-token>
+
+    <span *ngIf=(!hideLogado) (click)="ativaLogin()"> X Sair</span>
+    <app-logado *ngIf=(!hideLogado) ></app-logado>
+  </div>
+
+
+</div>
+
 
 
 
