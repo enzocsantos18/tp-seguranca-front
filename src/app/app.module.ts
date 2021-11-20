@@ -7,6 +7,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { TokenComponent } from './token/token.component';
 import { LogadoComponent } from './logado/logado.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     LogadoComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

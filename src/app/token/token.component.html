@@ -1,5 +1,5 @@
 <div class="card">
-  <form action="">
+  <form [formGroup]="tokenForm" (ngSubmit)="onSubmit()">
     <label for="token" >Token: </label>
     <input type="text" name="token" id="token" >
     <button>Verificar</button>

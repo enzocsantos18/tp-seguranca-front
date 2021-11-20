@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-token',
   templateUrl: './token.component.html',
 })
-export class TokenComponent implements OnInit {
+export class TokenComponent  {
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {}
 
-  ngOnInit(): void {
+
+  tokenForm = this.formBuilder.group({
+    token: [''],
+  });
+
+
+  onSubmit(): void {
+    console.log('Your order has been submitted', this.tokenForm.value);
   }
-
 }

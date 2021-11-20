@@ -1,14 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
 })
-export class CadastroComponent implements OnInit {
+export class CadastroComponent {
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {}
 
-  ngOnInit(): void {
+
+  cadastroForm = this.formBuilder.group({
+    email: [''],
+    password: []
+  });
+
+
+  onSubmit(): void {
+    console.log('Your order has been submitted', this.cadastroForm.value);
   }
 
 }
