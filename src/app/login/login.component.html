@@ -1,5 +1,7 @@
 <div class="card">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
+
     <label for="email" >Email: </label>
     <input type="email" formControlName="email" name="email" id="email" >
     <label for="password" >Password: </label>
