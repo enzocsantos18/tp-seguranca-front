@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { TokenComponent } from './token/token.component';
 import { LogadoComponent } from './logado/logado.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { LogadoComponent } from './logado/logado.component';
     LogadoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
