@@ -2,6 +2,8 @@
   <form [formGroup]="tokenForm" (ngSubmit)="onSubmit()">
     <h1>Token</h1>
 
+    <p>Confira seu email para pegar o token enviado</p>
+
     <label for="token" >Token: </label>
     <input type="text" formControlName="token" name="token" id="token" >
     <button>Verificar</button>
