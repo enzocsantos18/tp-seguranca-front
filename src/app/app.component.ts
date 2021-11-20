@@ -1,13 +1,16 @@
+import { UserService } from './user.service';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
   title = 'two-factor-frontend';
 
+  constructor(private userService: UserService) {}
+
+  email = '';
   hideCadastro = true;
   hideLogin = false;
   hideLogado = true;
@@ -41,15 +44,32 @@ export class AppComponent {
 
 
   login(usuario: any) {
-    console.log(usuario)
+
+    this.userService.logar(usuario).subscribe((res) => {
+      this.userService.token(usuario.email).subscribe(res => {
+        this.ativaToken();
+        this.email = usuario.email;
+      }, err => {
+        this.ativaLogin();
+
+        alert("Erro ao gerar token, tente logar novamente")
+
+      })
+    }, (err) => {
+      alert("Usuário e/ou senha inválidos")
+    })
 
   }
   adicionarUsuario(usuario: any) {
     console.log(usuario)
 
   }
-  token(token: any) {
-    console.log(token)
 
-  }
+  token(valor: any) {
+
+    const {token} = valor;
+
+    this.userService.validateToken(this.email,token).subscribe((res) => {
+      this.ativaLogado();
+  }, (err) => {alert("Erro ao validar token")})}
 }
