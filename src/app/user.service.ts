@@ -21,6 +21,11 @@ export class UserService {
 
   }
 
+  cadastro(usuario:any) {
+    return this.http.post('http://localhost:8080/users/register', usuario);
+
+  }
+
   validateToken(email: string, token: number) {
 
     return this.http.post('http://localhost:8080/users/token/validate', {email, token});

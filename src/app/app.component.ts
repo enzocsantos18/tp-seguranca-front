@@ -61,9 +61,12 @@ export class AppComponent {
 
   }
   adicionarUsuario(usuario: any) {
-    console.log(usuario)
 
-  }
+    this.userService.cadastro(usuario).subscribe((res) => {
+      this.ativaLogin();
+  }, (err) => {alert("Erro ao cadastrar verifique se seu email é valido e já não exista uma conta cadastrada e se sua senha tem mais de 4 caracteres")})}
+
+
 
   token(valor: any) {
 
